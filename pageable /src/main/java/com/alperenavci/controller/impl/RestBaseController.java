@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import com.alperenavci.utils.PagerUtil;
 import com.alperenavci.utils.RestPageableEntity;
 import com.alperenavci.utils.RestPageableRequest;
+import com.alperenavci.utils.RestRootEntity;
 
 // Controller 'de karmaşayı azltmak için vardır.
 public class RestBaseController {
@@ -18,6 +19,10 @@ public class RestBaseController {
 	
 	public <T> RestPageableEntity<T> toPageableResponse(Page<?> page, List<T> content) {
 		return PagerUtil.toPageableResponse(page, content);
+	}
+	
+	public <T> RestRootEntity<T> ok(T payload){
+		return RestRootEntity.ok(payload);
 	}
 	
 }
